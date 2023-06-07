@@ -12,7 +12,7 @@
 	<artifactId>chatgpt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>chatgpt</name>
-	<description>Demo project for chatgpt Spring Boot</description>
+	<description>Demo project for ChatGPT Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -25,7 +25,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

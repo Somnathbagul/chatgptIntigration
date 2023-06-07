@@ -5,6 +5,6 @@ public class ChatGptConstant {
     public static final String CHAT = "/chat";
     public static final String AUTHORIZATION = "Authorization";
     public static final String CONTENT_TYPE = "Content-Type";
-    public static final String MODEL = "gpt-3.5-turbo-0301";
     public static final String USER = "user";
+
 }

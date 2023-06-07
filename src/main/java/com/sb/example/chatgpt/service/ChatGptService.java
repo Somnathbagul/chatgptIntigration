@@ -14,16 +14,25 @@ import org.springframework.beans.factory.annotation.Value;
 public class ChatGptService {
     @Value("${api.endpoint}")
     private String endpoint;
+
+    @Value("${api.model}")
+    private String model;
+    @Value("${api.temperature}")
+    private String temperature;
+
     private final RestTemplate restTemplate;
 
     public ChatGptService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    public String processMessage(ChatGptReqMessage chatGptReqMessage, String authorization, MediaType mediaType) {
+    public String processMessage(String content, String authorization, MediaType mediaType) {
         HttpHeaders headers = new HttpHeaders();
         headers.set(ChatGptConstant.AUTHORIZATION, authorization);
         headers.setContentType(mediaType);
+
+        ChatGptReqMessage chatGptReqMessage = new ChatGptReqMessage(content,model,temperature);
+
         HttpEntity<ChatGptReqMessage> requestEntity = new HttpEntity<>(chatGptReqMessage, headers);
         ResponseEntity<String> responseEntity = restTemplate.exchange(endpoint.trim(), HttpMethod.POST, requestEntity, String.class);
 
